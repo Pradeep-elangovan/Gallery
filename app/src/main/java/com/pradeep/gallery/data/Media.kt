@@ -132,19 +132,22 @@ object MediaRepo {
                 .sortedByDescending { it.first().size * it.size }
         }
 
-    private fun md5(ctx: Context, uri: Uri): String? = try {
-        val md = MessageDigest.getInstance("MD5")
-        ctx.contentResolver.openInputStream(uri)?.use { s ->
-            val buf = ByteArray(64 * 1024)
-            while (true) {
-                val n = s.read(buf)
-                if (n < 0) break
-                md.update(buf, 0, n)
+    private fun md5(ctx: Context, uri: Uri): String? {
+        return try {
+            val md = MessageDigest.getInstance("MD5")
+            val stream = ctx.contentResolver.openInputStream(uri) ?: return null
+            stream.use { s ->
+                val buf = ByteArray(64 * 1024)
+                while (true) {
+                    val n = s.read(buf)
+                    if (n < 0) break
+                    md.update(buf, 0, n)
+                }
             }
-        } ?: return null
-        md.digest().joinToString("") { "%02x".format(it) }
-    } catch (_: Exception) {
-        null
+            md.digest().joinToString("") { "%02x".format(it) }
+        } catch (_: Exception) {
+            null
+        }
     }
 
     data class GeoItem(val item: MediaItem, val lat: Double, val lon: Double)
