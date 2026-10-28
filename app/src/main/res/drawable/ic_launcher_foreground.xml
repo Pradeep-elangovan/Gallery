@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- photo frame -->
+    <path
+        android:fillColor="#F5F7FA"
+        android:pathData="M30,34h48a4,4 0 0,1 4,4v32a4,4 0 0,1 -4,4h-48a4,4 0 0,1 -4,-4v-32a4,4 0 0,1 4,-4z" />
+    <!-- mountains -->
+    <path
+        android:fillColor="#7FA6D6"
+        android:pathData="M30,70l14,-18l10,12l8,-8l16,14z" />
+    <!-- pin head -->
+    <path
+        android:fillColor="#FF5A5F"
+        android:pathData="M70,22m-9,0a9,9 0 1,1 18,0a9,9 0 1,1 -18,0" />
+    <!-- pin needle -->
+    <path
+        android:fillColor="#FF5A5F"
+        android:pathData="M68.5,30l3,0l-1.5,9z" />
+</vector>
